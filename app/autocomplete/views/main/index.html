@@ -1,0 +1,15 @@
+<:Body>
+  <span class="xautocomplete">
+      <input type="text" e-focusout="not `$(event.js_event.relatedTarget).hasClass('xitem')` and self.focus=false" e-focusin="self.focus=true" e-keydown="down event" value="{{ val_f }}" />
+       {{if show}}
+       <div class="xautocomplete-popover">
+           {{autocomplete.each_with_index do |item, i|}}
+           {{if attrs.template.nil?}}
+           <div tabindex="100" e-click="click_item item" class="xitem {{selected? i}}">{{item.send(attrs.field)}}</div>
+           {{else}}
+           <div tabindex="100" e-click="click_item item" class="xitem {{selected? i}}">{{view attrs.template, {item: item, text: item.send(attrs.field)} }}</div>
+           {{end}}
+           {{end}}
+       </div>
+    {{end}}
+  </span>

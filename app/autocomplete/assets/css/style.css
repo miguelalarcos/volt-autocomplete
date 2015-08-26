@@ -1,0 +1,19 @@
+.xautocomplete {
+    position: relative;
+}
+
+.xautocomplete-popover {
+    position: absolute;
+    left: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.xselected {
+    background-color: black;
+    color: white;
+}
+
+.xitem {
+    cursor: pointer;
+}
