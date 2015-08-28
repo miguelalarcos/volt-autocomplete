@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Volt::Autocomplete::VERSION
   spec.authors       = ["miguel"]
   spec.email         = ["miguel.alarcos@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{An autocomplete widget for the Ruby framework Volt.}
+  spec.description   = %q{An autocomplete widget for the Ruby framework Volt.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
