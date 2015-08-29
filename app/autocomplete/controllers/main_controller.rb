@@ -4,6 +4,11 @@ module Autocomplete
     reactive_accessor :query
     reactive_accessor :focus
 
+    def initialize
+      super
+      @total = 0
+    end
+
     def val_f
       self.query
     end
@@ -60,13 +65,18 @@ module Autocomplete
     end
 
     def selected? i
-      autocomplete.count.then do |c|
-        if self.index_ % c == i
-          'xselected'
-        else
-          ''
-        end
+      if self.index_ % @total.value == i
+        'xselected'
+      else
+        ''
       end
+      #autocomplete.count.then do |c|
+      #  if self.index_ % c == i
+      #    'xselected'
+      #  else
+      #    ''
+      #  end
+      #end
     end
 
     def autocomplete
@@ -76,6 +86,7 @@ module Autocomplete
       dct[name] = {"$regex" => '^.*' + self.query + '.*$'}
       order_ = {}
       order_[name] = 1
+      @total = collection.where(dct).order(order_).all.count
       collection.where(dct).order(order_).all
     end
 
